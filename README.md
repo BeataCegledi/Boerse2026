@@ -7,9 +7,7 @@
 Die Simulation läuft in einem eigenen **Thread**. In jeder Runde bekommen alle Aktien einen neuen Zufallskurs. Danach entscheidet jeder Broker nach seiner Strategie, ob er kauft oder verkauft. Handeln darf ein Broker aber nur mit einem **aktiven Benutzerkonto**, und aktiv wird das Konto erst mit einem vollständigen Profil. Alle 10 Runden zeigt die Börse das Gesamtvermögen jedes Brokers an.
 Das Projekt übt **objektorientiertes Design** mit abstrakten Klassen, Vererbung, Polymorphie und Komposition, dazu **Multithreading** und **Unit-Tests mit JUnit 5**.
 
-![Klassendiagramm](Klassendiagramm.png)
-
-Das Klassendiagramm gibt es auch als PDF: [Klassendiagramm.pdf](Klassendiagramm.pdf)
+Das Klassendiagramm: [Klassendiagramm.pdf](Klassendiagramm.pdf)
 
 ## Funktionsumfang
 
