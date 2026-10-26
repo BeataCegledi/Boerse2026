@@ -1,15 +1,15 @@
-# ☕ Boerse2026 – Börsensimulation in Java
+# Boerse2026 – Börsensimulation in Java
 
 > Eine Konsolen-Börsensimulation mit Aktien, deren Kurse sich laufend ändern, und Brokern mit eigener Handelsstrategie und eigenem Benutzerkonto. Entstanden in der Berufsschule während der Umschulung zur Fachinformatikerin Anwendungsentwicklung.
 
-## 📋 Projektbeschreibung
+## Projektbeschreibung
 
 Die Simulation läuft in einem eigenen **Thread**. In jeder Runde bekommen alle Aktien einen neuen Zufallskurs. Danach entscheidet jeder Broker nach seiner Strategie, ob er kauft oder verkauft. Handeln darf ein Broker aber nur mit einem **aktiven Benutzerkonto**, und aktiv wird das Konto erst mit einem vollständigen Profil. Alle 10 Runden zeigt die Börse das Gesamtvermögen jedes Brokers an.
 Das Projekt übt **objektorientiertes Design** mit abstrakten Klassen, Vererbung, Polymorphie und Komposition, dazu **Multithreading** und **Unit-Tests mit JUnit 5**.
 
 ![Klassendiagramm](src/BoerseKlassendiagramm.png)
 
-## 🔧 Funktionsumfang
+## Funktionsumfang
 
 ### Eingaben
 - Keine Benutzereingabe: Aktien und Broker werden in `Start.java` angelegt
@@ -56,7 +56,7 @@ Das Projekt übt **objektorientiertes Design** mit abstrakten Klassen, Vererbung
 - Kauf- und Verkaufsmeldungen der Broker mit Restkapital
 - Alle 10 Runden: Gesamtvermögen jedes Brokers (Kapital + Depotwert)
 
-## 💡 Verwendete Java-Konzepte
+## Verwendete Java-Konzepte
 
 | Konzept | Anwendung im Projekt |
 |---|---|
@@ -76,7 +76,7 @@ Das Projekt übt **objektorientiertes Design** mit abstrakten Klassen, Vererbung
 | `String.format("%.2f")` | Beträge mit zwei Nachkommastellen |
 | JUnit 5 | 26 Tests: `BoerseTest` (16), `BenutzerKontoTest` (7), `ProfilTest` (3) |
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 src/
@@ -98,7 +98,7 @@ src/
 └── module-info.java
 ```
 
-## ▶️ Ausführen
+## Ausführen
 
 **In Eclipse:** Projekt importieren (*File → Import → Existing Projects into Workspace*), dann `boerse/Start.java` → *Run As → Java Application*.
 Tests: Rechtsklick auf `src` → *Run As → JUnit Test*.
@@ -116,7 +116,7 @@ java -cp bin boerse.Start
 > **Voraussetzungen:** Java 17 oder neuer. Für die Tests: JUnit 5 (in Eclipse schon enthalten).
 > Die Simulation läuft endlos weiter. Beenden mit `Strg + C` oder über den roten Stopp-Button in Eclipse.
 
-## 👩‍💻 Über die Entwicklerin
+## Über die Entwicklerin
 
 Dieses Projekt ist eine Übungsaufgabe aus der Berufsschule.
 Es zeigt, dass ich ein Problem mit **abstrakten Klassen und Polymorphie** sauber modellieren kann: Jeder Broker bringt seine eigene Strategie mit, ohne dass die Börse den Unterschied kennen muss. Mit dem Paket `konto` habe ich das Projekt um **Komposition** erweitert. Dazu kommt ein **Thread**, und die gesamte Logik ist mit **26 JUnit-Tests** abgesichert.
