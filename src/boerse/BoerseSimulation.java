@@ -3,12 +3,11 @@ package boerse;
 import java.util.ArrayList;
 
 public class BoerseSimulation extends Thread{
-	//private ArrayList<Kunde> kundenListe = new ArrayList<>();
 	private static ArrayList<Aktien> aktienListe = new ArrayList<>();
 	private static ArrayList<Broker> brokerListe = new ArrayList<>();
 	
 	public BoerseSimulation(String text) {
-		IO.println(text);
+		System.out.println(text);
 	}
 	
 	public static ArrayList<Aktien> getAktienListe() {
@@ -19,41 +18,7 @@ public class BoerseSimulation extends Thread{
 		BoerseSimulation.aktienListe = aktienListe;
 	}
 
-	/*public BoerseSimulation(ArrayList<Kunde> kundenListe){
-		this.kundenListe = kundenListe;
-	}
-	
-	public void AddKunde(Kunde kunde) {		if (!this.kundenListe.contains(kunde)) {
-			this.kundenListe.add(kunde);
-		} else {
-			IO.println("Diese Kunde ist bereits in der Kundenliste, du kannst nur seinen Portfolio aktualisieren");
-		}
-	}
-	
-	public void getPortfolio(Kunde kunde) {
-		if (this.kundenListe.contains(kunde)) {
-			Kunde aktuell = this.kundenListe.get(this.kundenListe.indexOf(kunde));
-			IO.println(aktuell.getPortfolio());
-		} else
-			IO.println("Diese Kunde existiert nicht in der Kundenliste, du sollst erstmal hinzufügen!");
-	}
-	
-	public void AktienHinzufügen(Kunde kunde, Aktien aktie) {
-		if (this.kundenListe.contains(kunde)) {
-			Kunde aktuell = this.kundenListe.get(this.kundenListe.indexOf(kunde));
-			aktuell.AktienKaufen(aktie);
-		} else
-			IO.println("Diese Kunde existiert nicht in der Kundenliste, du sollst erstmal hinzufügen!");
-	}
-	
-	public void AktienEntfernen(Kunde kunde, Aktien aktie) {
-		if (this.kundenListe.contains(kunde)) {
-			Kunde aktuell = this.kundenListe.get(this.kundenListe.indexOf(kunde));
-			aktuell.AktienVerkaufen(aktie);
-		} else
-			IO.println("Diese Kunde existiert nicht in der Kundenliste, du sollst erstmal hinzufügen!");
-	}*/
-	
+
 		
 	public static ArrayList<Broker> getBrokerListe() {
 		return brokerListe;
@@ -65,7 +30,7 @@ public class BoerseSimulation extends Thread{
 
 	public void brokerHinzufügen(Broker broker) {
 		if (brokerListe.contains(broker)) {
-			IO.println("Dieser Broker gibt es schon in der Liste!");
+			System.out.println("Dieser Broker gibt es schon in der Liste!");
 		} else {
 			brokerListe.add(broker);
 		}			
@@ -75,7 +40,7 @@ public class BoerseSimulation extends Thread{
 		if (brokerListe.contains(broker)) {
 			brokerListe.remove(broker);
 		} else {
-			IO.println("Dieser Broker gibt es nicht in der Liste!");
+			System.out.println("Dieser Broker gibt es nicht in der Liste!");
 		}
 	}
 	
@@ -87,7 +52,7 @@ public class BoerseSimulation extends Thread{
 		if (aktienListe.contains(aktie)) {
 			aktienListe.remove(aktie);
 		} else {
-			IO.println("Diese Aktie gibt es nicht in der Liste!");
+			System.out.println("Diese Aktie gibt es nicht in der Liste!");
 		}
 	}
 	
@@ -115,22 +80,22 @@ public class BoerseSimulation extends Thread{
 	public void run() {
 		int runde = 1;
 		while (true) {
-			IO.println(runde + ". Runde:");
+			System.out.println(runde + ". Runde:");
 			refrescheAlleAktien();
 			zeigeAlleAktien();
 			alleBrokerHandeln();
-			IO.println("*".repeat(50));
+			System.out.println("*".repeat(50));
 			try {
-				Thread.sleep(3*1000); //10 Sekunden warten
+				Thread.sleep(3*1000);
 			} catch (InterruptedException e) {
-				IO.println("Fehler!");
+				System.out.println("Fehler!");
 			}
 			runde++;
 			if (runde%10==0) {
 				for (Broker broker : brokerListe) {
-					IO.println("\n***** " + broker.name + " hat gerade: " + broker.gesamtVermögen() + " *****");					
+					System.out.println("\n***** " + broker.name + " hat gerade: " + broker.gesamtVermögen() + " *****");					
 				}
-				IO.println("\n"+"*".repeat(50)+"\n");
+				System.out.println("\n"+"*".repeat(50)+"\n");
 				try {Thread.sleep(3*1000);} catch (InterruptedException e) {}
 			}
 		}

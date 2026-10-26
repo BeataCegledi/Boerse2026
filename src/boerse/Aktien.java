@@ -9,8 +9,6 @@ public class Aktien{
 	
 	double[] historie = new double[10];
 	
-	Perzeptron gehirn = new Perzeptron();
-
 	
 	public Aktien(String aktienName, double originalWert) {
 		super();
@@ -21,13 +19,12 @@ public class Aktien{
 	}
 
 	
-	public Aktien(String aktienName, double originalWert, double aktuellerWert, double[] historie, Perzeptron gehirn) {
+	public Aktien(String aktienName, double originalWert, double aktuellerWert, double[] historie) {
 		super();
 		this.aktienName = aktienName;
 		this.originalWert = originalWert;
 		this.aktuellerWert = aktuellerWert;
 		this.historie = historie;
-		this.gehirn = gehirn;
 	}
 	
 	private int h = 0;
@@ -39,13 +36,9 @@ public class Aktien{
 	}
 	
 	public void zeigeDich() {
-		IO.println("=".repeat(50));
-		IO.println("Aktie " + aktienName + " hat aktuell den Wert " + String.format("%.2f",aktuellerWert));
-		IO.print("Vorherige Werte: ");
-		for (double hist : historie) {
-			IO.print(String.format("%.2f", hist) + ", ");
-		}
-		IO.println();
+		System.out.println("=".repeat(50));
+		System.out.println("Aktie " + aktienName + " hat aktuell den Wert " + String.format("%.2f",aktuellerWert));
+		System.out.println();
 		this.schaueObSteigt();
 	}
 	
@@ -60,9 +53,9 @@ public class Aktien{
 	public void schaueObSteigt() {
 
 		if (durchschnitt()> originalWert) {
-			IO.println("Aktie geht hoch!!! KAUFEN");
+			System.out.println("Aktie geht hoch!!! KAUFEN");
 		} else {
-			IO.println("Vorisicht der Wert von Aktie SINKT!!! ");
+			System.out.println("Vorisicht der Wert von Aktie SINKT!!! ");
 		}
 	}
 }

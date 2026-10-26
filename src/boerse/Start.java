@@ -22,9 +22,9 @@ public class Start{
 		zuericher.brokerHinzufügen(augusto);
 		zuericher.brokerHinzufügen(luigi);
 		
-		zuericher.start();  //start den Thread
+		zuericher.start();
 		
-		Aktien mercedes = new Aktien("Mercedes benz", 200);		//neue Aktien während dem Lauf eintragen
+		Aktien mercedes = new Aktien("Mercedes benz", 200);
 		zuericher.AktienHinzufügen(mercedes);
 		System.out.println("Mercedes addiert!!");
 		
